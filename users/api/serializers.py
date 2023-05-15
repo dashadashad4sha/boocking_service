@@ -24,6 +24,12 @@ class UserSerializer(serializers.ModelSerializer):
         ]
 
 
+class UserForChatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username']
+
+
 class UserRetrieveSerializer(serializers.ModelSerializer):
     favorites = HallFavoriteSerializer(many=True, required=False)
     email = serializers.EmailField()
