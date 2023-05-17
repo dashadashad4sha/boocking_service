@@ -1,9 +1,8 @@
-from django.shortcuts import render
-from .models import Conversation
+from chat.models import Conversation
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from users.models import User as User
-from .serializers import ConversationListSerializer, ConversationSerializer
+from chat.api.serializers import ConversationListSerializer, ConversationSerializer
 from django.db.models import Q
 from django.shortcuts import redirect, reverse
 

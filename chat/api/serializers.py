@@ -1,5 +1,6 @@
 from users.api.serializers import UserForChatSerializer
-from .models import Conversation, Message
+from chat.models import Conversation, Message
+from halls.api.serializers import HallSerializer
 from rest_framework import serializers
 
 
@@ -26,8 +27,9 @@ class ConversationListSerializer(serializers.ModelSerializer):
 class ConversationSerializer(serializers.ModelSerializer):
     initiator = UserForChatSerializer()
     receiver = UserForChatSerializer()
+    hall = HallSerializer()
     message_set = MessageSerializer(many=True)
 
     class Meta:
         model = Conversation
-        fields = ['initiator', 'receiver', 'message_set']
+        fields = ['initiator', 'receiver', 'hall', 'message_set']

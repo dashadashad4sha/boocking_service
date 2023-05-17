@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from .api import views
 
 urlpatterns = [
     path('start/', views.start_convo, name='start_convo'),

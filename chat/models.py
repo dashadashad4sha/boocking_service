@@ -1,8 +1,9 @@
 from django.db import models
 from django.conf import settings
-
+from halls.models import Hall
 
 # Create your models here.
+
 
 class Conversation(models.Model):
     initiator = models.ForeignKey(
@@ -12,6 +13,7 @@ class Conversation(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name="convo_participant"
     )
     start_time = models.DateTimeField(auto_now_add=True)
+    hall = models.ForeignKey(Hall, on_delete=models.SET_NULL, null=True)
 
 
 class Message(models.Model):

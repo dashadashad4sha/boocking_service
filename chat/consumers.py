@@ -1,15 +1,13 @@
 import base64
 import json
 import secrets
-from datetime import datetime
 
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 from django.core.files.base import ContentFile
 
-from users.models import User as MyUser
 from .models import Message, Conversation
-from .serializers import MessageSerializer
+from chat.api.serializers import MessageSerializer
 
 
 class ChatConsumer(WebsocketConsumer):
